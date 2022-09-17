@@ -29,5 +29,7 @@ urlpatterns = [
     path('apicondition/', include(router_condition.urls)),
     path('apitypescondition/', include(router_types_conditions.urls)),
     path('apiplace/', include(router_place.urls)),
-    path('apicareer/', include(router_career.urls))
+    path('apicareer/', include(router_career.urls)),
+
+    path('buscadorCursos', include("Buscador.urls"))
 ]

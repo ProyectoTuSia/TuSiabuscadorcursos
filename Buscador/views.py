@@ -1,17 +1,14 @@
-from http.client import HTTPResponse
-from django.http import HttpResponse
-from django.shortcuts import render
+from gzip import READ
+from http.client import REQUEST_ENTITY_TOO_LARGE
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 from Buscador.models import Campus
 from Buscador.models import Faculty
 
-# Create your views here.
-def list_task(request):
-    Campus_Info = Campus.objects.all()
-    return render(request, "Filtrador.html", {'Campus_Info': Campus_Info})
 
-def list_task2(request):
-
-    Campus_Info = Campus.objects.all()
-    result = request.POST["Filtro_Campus"]
-    Faculty_Info = Faculty.objects.all()
-    return (request, "Filtrador.html", {'Campus_Info': Campus_Info, 'Faculty_Info': Faculty_Info})
+@api_view(['GET', 'PUT'])
+def filterCourses(request):
+    #traerse los modelos necesarios y hacer las consultas, tal vez con JOINS
+    
+    return Response({"unu": request.data})

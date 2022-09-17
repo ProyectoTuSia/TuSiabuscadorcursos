@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'TuSIA_busquedaCursos_db',
-        'USER': 'main',
-        'PASSWORD': 'juveda1009',
+        'USER': 'postgres',
+        'PASSWORD': 'posjulio1321gres',
         'HOST': '127.0.0.1',
         'DATABASE_PORT': '5432',
     }

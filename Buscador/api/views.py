@@ -1,4 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ViewSet
+
 from Buscador.models import Group
 from Buscador.models import Subject
 from Buscador.models import Schedule
@@ -18,11 +20,13 @@ from Buscador.api.serializers import PlaceSerializer
 from Buscador.api.serializers import CareerSerializer
 from Buscador.api.serializers import FacultySerializer
 
+from rest_framework.response import Response
 
 
 class CampusApiViewSet(ModelViewSet):
     serializer_class = CampusSerializer
-    queryset = Campus.objects.all()
+    queryset = Campus.objects.filter()
+
     
 class GroupApiViewSet(ModelViewSet):
     serializer_class = GroupSerializer    
