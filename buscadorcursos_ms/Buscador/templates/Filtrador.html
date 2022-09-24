@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Selecciones filtradores </h1>
+    <form action="" method="POST">
+        <select name="Filtro_Campus" onchange="this.form.submit()">
+            <option selected="selected"></option>
+        {% for info in Campus_Info %}
+            <option>
+                {{info.Name_campus}}
+            </option>
+        {% endfor %}
+        </select>
+    </form>
+    <form action="" method="POST">
+        <select name="Filtro_Faculty" onchange="this.form.submit()">
+        {% for info in Faculty_Info %}
+            <option>
+                {{info.Name_Faculty}}
+            </option>
+        {% endfor %}
+        </select>
+    </form>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Còdigo</td>
+                <td>Asignatura</td>
+                <td>Crèditos</td>
+                <td>Tipologìa</td>
+                <td>Descripciòn</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Còdigo</td>
+                <td>Asignatura</td>
+                <td>Crèditos</td>
+                <td>Tipologìa</td>
+                <td>Descripciòn</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+    
+
