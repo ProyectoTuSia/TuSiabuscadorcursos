@@ -1,12 +1,11 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.viewsets import ViewSet
-from rest_framework import generics
+from django_filters.rest_framework import DjangoFilterBackend
 from Buscador.models import Group,  Subject, Schedule, Condition, Types_Conditions, Place, Career, Faculty, Campus, Types_Typologys, Subjectsconditions
 from Buscador.serializers import CampusSerializer, GroupSerializer, SubjectSerializer, ScheduleSerializer, Types_TypologysSerializer
 from Buscador.serializers import ConditionSerializer, Types_ConditionsSerializer, PlaceSerializer, CareerSerializer, FacultySerializer
 from Buscador.serializers import SubjectsconditionsSerializer, IndexCampusSerializer, IndexFacultySerializer, IndexCareerSerializer
 from rest_framework.response import Response
-
 
 class CampusApiViewSet(ModelViewSet):
     serializer_class = CampusSerializer
@@ -217,16 +216,10 @@ class SubjectsconditionsApiViewSet(ModelViewSet):
     
 class GroupsforSubjectApiViewSet(ModelViewSet):
     serializer_class = GroupSerializer
-    def get_queryset(self):
-        groupsforsubject = Group.objects.all()
-        return groupsforsubject
+    queryset = Group.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['Id_subject'] 
     
-    def retrieve(self, request, *args, **kwargs):
-        params = kwargs
-        print(params['pk'])
-        groupsforsubject = Group.objects.filter(Id_subject = params['pk'])
-        serializer = GroupSerializer(groupsforsubject, many=True)
-        return Response(serializer.data)
 
 class IndexCareerApiViewSet(ModelViewSet): 
     serializer_class = IndexCareerSerializer
