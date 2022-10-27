@@ -14,6 +14,7 @@ from Buscador.views import IndexCampusApiViewSet
 from Buscador.views import IndexFacultyApiViewSet
 from Buscador.views import IndexCareerApiViewSet
 from Buscador.views import FilteredSubjectsApiVIew
+from Buscador.views import GroupsforSubjectApiViewSet
 
 router = DefaultRouter()
 
@@ -28,7 +29,7 @@ router.register(prefix='place', basename='Lugar', viewset=PlaceApiViewSet)
 router.register(prefix='condition', basename='Condicion', viewset=ConditionApiViewSet)
 router.register(prefix='subjectcondition', basename='MateriaCondicional', viewset=SubjectsconditionsApiViewSet)
 router.register(prefix='typecondition', basename='TipoCondicion', viewset=Types_ConditionsApiViewSet)
-
+router.register(prefix="GroupsforSubjects", basename='GruposporMateria', viewset= GroupsforSubjectApiViewSet)
 joins = DefaultRouter()
 joins.register(prefix='IndexCampus', basename='Index Campus', viewset=IndexCampusApiViewSet)
 joins.register(prefix='IndexFaculty', basename='Index Faculty', viewset=IndexFacultyApiViewSet)

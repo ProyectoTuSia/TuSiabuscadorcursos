@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.viewsets import ViewSet
-
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import generics
 from Buscador.models import Group,  Subject, Schedule, Condition, Types_Conditions, Place, Career, Faculty, Campus, Types_Typologys, Subjectsconditions
 from Buscador.serializers import CampusSerializer, GroupSerializer, SubjectSerializer, ScheduleSerializer, Types_TypologysSerializer
 from Buscador.serializers import ConditionSerializer, Types_ConditionsSerializer, PlaceSerializer, CareerSerializer, FacultySerializer
@@ -215,6 +216,11 @@ class SubjectsconditionsApiViewSet(ModelViewSet):
 
         return Response(serializer.data)
     
+class GroupsforSubjectApiViewSet(ModelViewSet):
+    serializer_class = GroupSerializer
+    groupsforsubject = Group.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['Id_subject']
 
 class IndexCareerApiViewSet(ModelViewSet): 
     serializer_class = IndexCareerSerializer
