@@ -88,10 +88,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'TuSia_Buscador_db',
-        'USER': 'main',
-        'PASSWORD': 'juveda1009',
-        'HOST': os.getenv("DB_HOST", "192.168.20.31"),
-        'DATABASE_PORT': '5433',
+        'USER': 'postgres',
+        'PASSWORD': '12345678',
+        'HOST': os.getenv("DB_HOST", "10.170.50.2"),
+        'DATABASE_PORT': '5432',
 
     }
 }

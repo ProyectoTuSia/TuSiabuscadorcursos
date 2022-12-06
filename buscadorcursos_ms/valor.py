@@ -1,11 +1,11 @@
 import os
 import time
 os.environ.setdefault("DJANGO_SETTINGS_MODULE","busquedorcursos.settings")
+import django
 
 django.setup()
 
 from Buscador.models import Campus, Faculty, Career, Place, Schedule, Types_Conditions, Subjectsconditions, Condition, Types_Typologys, Subject, Group
-
 
 def ingresarcampus():
     campus = [[1101, "Bogota"],[1126,"Sede Caribe"], [1103, "Sede Mnaizales"], [1102, "Medellin"]]
@@ -181,3 +181,4 @@ def inicio():
         print("Fecha y hora de inicio: "+time.strftime("%c"))
         print("Inicio: "+str(inicio)+" - Fin: "+str(fin))
         print("Población completa!! :D")
+inicio()
